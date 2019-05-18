@@ -27,7 +27,7 @@
        
        
        <!--系统底层会创建一个Properties对象，并将次对象交给spring管理  -->
-       <util:properties id="cfg" location="classpath:db.properties"/>
+   <util:properties id="cfg" location="classpath:db.properties"/>
        
        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
             init-method="init" destroy-method="close" lazy-init="false">
