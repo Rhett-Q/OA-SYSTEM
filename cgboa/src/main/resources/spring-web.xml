@@ -25,12 +25,55 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
        
-         <!--启用mvc默认配置(内置一部分bean对象的定义)-->
+       <context:component-scan base-package="com.cgboa.sys.controller"/>
+       
+       <!--启用mvc默认配置(内置一部分bean对象的定义)-->
        <mvc:annotation-driven/>
        <!--注册视图解析对象  ，访问页面的前缀和后缀在这里设置-->
-       <bean id="viewResovler"      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <!-- <bean id="viewResovler"      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
              <property name="Prefix" value="/WEB-INF/pages/"/>
              <property name="Suffix" value=".html"/>
-       </bean>
-       <context:component-scan base-package="com.cgboa.controller"/>
+       </bean> -->
+       
+       <!-- FreeMarker视图解析器  -->
+	    <bean id="freemarkerResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+	        <property name="order" value="1" />
+	        <property name="suffix" value=".ftl" />
+	        <property name="contentType" value="text/html;charset=utf-8" />
+	        <property name="viewClass">
+	            <value>org.springframework.web.servlet.view.freemarker.FreeMarkerView</value>
+	        </property>
+	    </bean>
+       
+       
+       <!-- freemarker的配置 -->
+       									   
+	    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	        <property name="templateLoaderPath">
+	            <value>/WEB-INF/templates/</value>
+	        </property>
+	        <property name="freemarkerSettings"><!-- 设置FreeMarker环境属性 -->
+	            <props>
+	                <prop key="template_update_delay">5</prop><!--刷新模板的周期，单位为秒 -->
+	                <prop key="default_encoding">UTF-8</prop><!--模板的编码格式 -->
+	                <prop key="locale">UTF-8</prop><!-- 本地化设置 -->
+	                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+	                <prop key="time_format">HH:mm:ss</prop>
+	                <prop key="number_format">0.####</prop>
+	                <prop key="boolean_format">true,false</prop>
+	                <prop key="whitespace_stripping">true</prop>
+	                <prop key="tag_syntax">auto_detect</prop>
+	                <prop key="url_escaping_charset">UTF-8</prop>
+	            </props>
+	        </property>
+	    </bean>
+       
+       
+	    <mvc:resources location="/WEB-INF/static/css/" mapping="/css/**"></mvc:resources>
+		<mvc:resources location="/WEB-INF/static/js/" mapping="/js/**"></mvc:resources>
+		<mvc:resources location="/WEB-INF/static/images/" mapping="/images/**"/>
+		<mvc:resources location="/WEB-INF/static/easyui/" mapping="/easyui/**"/>
+		<mvc:resources location="/WEB-INF/static/bootstrap/" mapping="/bootstrap/**"/>
+       
+       	<context:component-scan base-package="com.cgboa.controller"/>
   </beans>
