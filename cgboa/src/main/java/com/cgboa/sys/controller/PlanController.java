@@ -13,7 +13,5 @@ public class PlanController {
 	}
 	
 	
-	public  doDeleteObjects(Integer...ids){
-		
-	}
+	
 }
