@@ -25,8 +25,6 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
        
-       <context:component-scan base-package="com.cgboa.sys.controller"/>
-       
        <!--启用mvc默认配置(内置一部分bean对象的定义)-->
        <mvc:annotation-driven/>
        <!--注册视图解析对象  ，访问页面的前缀和后缀在这里设置-->
@@ -34,6 +32,10 @@
              <property name="Prefix" value="/WEB-INF/jsp/"/>
              <property name="Suffix" value=".jsp"/>
        </bean>
-
+		
+		<!-- 下面两种设置不拦截静态资源 -->
+		<mvc:default-servlet-handler/>
+		<!-- <mvc:resources location="/resource/" mapping="/resource/**"></mvc:resources> -->
+		
        	<context:component-scan base-package="com.cgboa.sys.controller"/>
   </beans>
