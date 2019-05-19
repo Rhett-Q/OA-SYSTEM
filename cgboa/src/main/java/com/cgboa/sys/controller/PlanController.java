@@ -10,6 +10,10 @@ public class PlanController {
 	@RequestMapping("planview")
 	public String doPlanView(){
 		return "plan/planview";
+	}
+	
+	
+	public  doDeleteObjects(Integer...ids){
 		
 	}
 }
