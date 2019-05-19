@@ -9,35 +9,41 @@
 
 		<li><a href="javascript:changepath('/infromlist');" class="green-none white"><span
 				class="glyphicon glyphicon-bell"></span>
-				
+				<#if notice==0>
 					<span class="badge blue-badge badge-notice"></span>
-				
+				<#else>
+					<span class="badge blue-badge badge-notice">${(notice)!''}</span>
+				</#if>
 				</a>
 		</li>
 		<li><a href="javascript:changepath('/mail');" class="green-none white"><span
 				class="glyphicon glyphicon-envelope"></span>
-				
+				<#if mail==0>
 					<span class="badge yellow-badge badge-mail"></span>
-				
+				<#else>
+					<span class="badge yellow-badge badge-mail">${(mail)!''}</span>
+				</#if>
 				</a>
 		</li>
 		<li><a href="javascript:changepath('/mytask');" class="green-none white"><span
 				class="glyphicon glyphicon-flag"></span>
-				
+				<#if task==0>
 					<span class="badge red-badge"></span>
-				
+				<#else>
+					<span class="badge red-badge">${(task)!''}</span>
+				</#if>
 				</a>
 		</li>
 		<li class="dropdown">
 		<!--设置导航栏头像面板--> 
 		<a href="#" class="green-none white" data-toggle="dropdown">
-				<img src="/image//timg.jpg'}" class="user-image" /> <span</span>
+				<img src="/image/${(user.imgPath)!'/timg.jpg'}" class="user-image" /> <span>${user.userName}</span>
 		</a> <!--设置点击按钮弹出用户面板层-->
 			<ul class="dropdown-menu" style="padding:0;">
-				<li class="user-header green"><img src="/image/!'/timg.jpg'}"
+				<li class="user-header green"><img src="/image/${(user.imgPath)!'/timg.jpg'}"
 					class="img-circle" style="width: 100px;height:100px;" />
 					<p class="white" style="">
-						<span></span> / <span></span><br> <small></small>
+						<span>${user.dept.deptName} </span> / <span> ${user.role.roleName}</span><br> <small>${user.position.name}</small>
 					</p></li>
 				<li class="user-footer">
 					<div class="pull-left">
