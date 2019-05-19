@@ -1,60 +1,25 @@
 package com.cgboa.sys.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-//import javax.validation.Valid;
-//
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.util.StringUtils;
-//import org.springframework.validation.BindingResult;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.SessionAttribute;
-//
-//import com.alibaba.fastjson.JSONArray;
-//
-//import cn.gson.oasys.common.formValid.BindingResultVOUtil;
-//import cn.gson.oasys.common.formValid.MapToList;
-//import cn.gson.oasys.common.formValid.ResultEnum;
-//import cn.gson.oasys.common.formValid.ResultVO;
-//import cn.gson.oasys.model.dao.IndexDao;
-//import cn.gson.oasys.model.dao.roledao.RoleDao;
-//import cn.gson.oasys.model.dao.roledao.RolepowerlistDao;
-//import cn.gson.oasys.model.dao.user.UserDao;
-//import cn.gson.oasys.model.entity.role.Role;
-//import cn.gson.oasys.model.entity.role.Rolepowerlist;
-//import cn.gson.oasys.model.entity.system.SystemMenu;
-//import cn.gson.oasys.model.entity.user.User;
-//import cn.gson.oasys.services.role.RoleService;
-//import cn.gson.oasys.services.system.MenuSysService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cgboa.sys.entity.SysUser;
+import com.cgboa.sys.service.SysUserService;
 
 @Controller
 @RequestMapping("/")
 public class MenuSysController {
-
-//	Logger log = LoggerFactory.getLogger(getClass());
-//
-//	@Autowired
-//	private IndexDao iDao;
-//	@Autowired
-//	private MenuSysService menuService;
-//	@Autowired
-//	private UserDao uDao;
-//	@Autowired
-//	private RoleDao rdao;
-//	@Autowired
-//	private RolepowerlistDao rldao;
-//	@Autowired
-//	private RoleService roleService;
-
+	
+	
+	@Autowired
+	private SysUserService sysUserService;
+	
+	
 	/**
 	 *  显示菜单管理界面
 	 * @param req
@@ -220,9 +185,5 @@ public class MenuSysController {
 		return "forward:/testsysmenu";
 	}
 
-	@RequestMapping("index")
-	public String doIndex() {
-		return "index/index";
-	}
-	
+
 }

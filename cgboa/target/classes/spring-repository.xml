@@ -48,11 +48,11 @@
               value="classpath*:mappers/sys/*.xml"/>
        </bean>
 	  <!-- 通过此bean对象扫描指定包下的dao接口，并基于接口创建其实现类对象(代理对象) -->
-	 <!--  <bean id="daoScanner" 
+		<bean id="daoScanner" 
 	             class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	             <property name="BasePackage" value="com.cgboa.**.dao"/>
-	             当spring容器只有一个sqlSessionFactory时如下配置可以不写
+	             <!-- 当spring容器只有一个sqlSessionFactory时如下配置可以不写 -->
 	             <property name="SqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-	   </bean> -->
-  	   <context:component-scan base-package="com.cgboa.sys.dao"></context:component-scan>
+	   </bean>
+  	   <!-- <context:component-scan base-package="com.cgboa.sys.dao"></context:component-scan> -->
 </beans>

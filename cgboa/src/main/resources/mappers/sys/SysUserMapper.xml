@@ -3,6 +3,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cgboa.sys.dao.SysUserDao"> 
 	
-
+	<select id="findObjectByUserId" resultType="com.cgboa.sys.entity.SysUser">
+		select * from aoa_user where user_id = #{userId}
+	</select>
 	
 </mapper>
