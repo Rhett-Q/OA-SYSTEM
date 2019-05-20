@@ -3,13 +3,13 @@ package com.cgboa.sys.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/")
 @Controller
-public class PageController {
+@RequestMapping("/")
+public class HomeController {
 
+	
 	@RequestMapping("home")
-	public String doHome() {
+	public String toHome(){
 		return "home/home";
 	}
-	
 }
